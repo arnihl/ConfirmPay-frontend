@@ -120,13 +120,13 @@ public class MainActivity extends AppCompatActivity {
             menuMyEvents.setVisible(false);
             menuCreateEvent.setVisible(false);
             menuLogin.setVisible(true);
-            menuLogin.setVisible(true);
+            menuSignup.setVisible(true);
         } else {
             menuMyAccount.setVisible(true);
             menuMyEvents.setVisible(true);
             menuCreateEvent.setVisible(true);
             menuLogin.setVisible(false);
-            menuLogin.setVisible(false);
+            menuSignup.setVisible(false);
         }
     }
 
