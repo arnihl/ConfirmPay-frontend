@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem menuLogin;
     private MenuItem menuSignup;
 
+    private final int LOGIN_REQUEST_CODE = 1;
+    private final int SIGNUP_REQUEST_CODE = 2;
 
     private EventAPI eventAPI;
 
@@ -128,8 +131,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(){
-
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        System.out.println("Activity Result");
+        switch (requestCode){
+            case LOGIN_REQUEST_CODE:
+                if(resultCode == Activity.RESULT_OK){
+                    loggedInCustomer = (Customer) data.getExtras().getSerializable("Customer");
+                    System.out.println("CUSTOMAH: " + loggedInCustomer.getName());
+                }
+                break;
+            default:
+                break;
+        }
+        setConditionalVisibles();
     }
 
     private void createEvent(Customer loggedInCustomer) {
@@ -148,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void logIn() {
         Intent i = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(i);
+        startActivityForResult(i, LOGIN_REQUEST_CODE);
     }
 
     @Override

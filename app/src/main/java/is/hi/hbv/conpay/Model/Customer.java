@@ -1,8 +1,9 @@
 package is.hi.hbv.conpay.Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Customer {
+public class Customer implements Serializable {
     private long id;
     private String cName;
     private Date cDate;

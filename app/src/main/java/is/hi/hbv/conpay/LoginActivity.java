@@ -2,6 +2,8 @@ package is.hi.hbv.conpay;
 
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -10,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import java.io.Serializable;
 
 import is.hi.hbv.conpay.Model.Customer;
 import is.hi.hbv.conpay.Network.APIClient;
@@ -24,7 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordField;
     private Button mLoginButton;
     private CustomerAPI customerAPI;
-    private static final String CUSTOMER_URI = "is.hi.hbv.conpay.Model.Customer";
+    private static final String CUSTOMER_URI = "is.hi.hbv.conpay.MainActivity";
+    private int LOGIN_REQUEST_CODE = 1;
 
     @Override
     public void onCreate(Bundle savedInstance) {
@@ -52,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(response.isSuccessful() && response.body() != null){
                     Toast.makeText(LoginActivity.this, "LoggedIn", Toast.LENGTH_SHORT).show();
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("Customer", (Serializable) response.body());
+                    setResult(Activity.RESULT_OK, resultIntent);
                     finish();
 
                 }
