@@ -2,6 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menuMyAccount"
+        android:title="My account" />
+    <item
+        android:id="@+id/menuMyEvents"
+        android:title="My events" />
+    <item
+        android:id="@+id/menuCreateEvent"
+        android:title="Create Event" />
+    <item
         android:id="@+id/menuLogin"
         android:title="Login" />
         <!-- android:icon="@drawable/ic_portrait_black_24dp" -->

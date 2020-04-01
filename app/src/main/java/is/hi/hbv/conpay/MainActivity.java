@@ -10,14 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
 
+import is.hi.hbv.conpay.Model.Customer;
 import is.hi.hbv.conpay.Model.Event;
 import is.hi.hbv.conpay.Model.EventAdapter;
 import is.hi.hbv.conpay.Network.APIClient;
@@ -37,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
+    public Customer loggedInCustomer;
+    private Menu menu;
+    private MenuItem menuMyAccount;
+    private MenuItem menuMyEvents;
+    private MenuItem menuCreateEvent;
+    private MenuItem menuLogin;
+    private MenuItem menuSignup;
 
 
     private EventAPI eventAPI;
@@ -52,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         eventAPI = new APIClient().getEventClient().create(EventAPI.class);
-        dl = (DrawerLayout)findViewById(R.id.activity_main);
+        dl = findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
 
         dl.addDrawerListener(t);
@@ -60,13 +69,31 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        nv = (NavigationView)findViewById(R.id.nv);
+        nv = findViewById(R.id.nv);
+        menu = nv.getMenu();
+        menuMyAccount = menu.findItem(R.id.menuMyAccount);
+        menuMyEvents = menu.findItem(R.id.menuMyEvents);
+        menuCreateEvent = menu.findItem(R.id.menuCreateEvent);
+        menuLogin = menu.findItem(R.id.menuLogin);
+        menuSignup =  menu.findItem(R.id.menuSignUp);
+
+        setConditionalVisibles();
+
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 switch(id)
                 {
+                    case R.id.menuMyAccount:
+                        myAccount(loggedInCustomer);
+                        break;
+                    case R.id.menuMyEvents:
+                        myEvents(loggedInCustomer);
+                        break;
+                    case R.id.menuCreateEvent:
+                        createEvent(loggedInCustomer);
+                        break;
                     case R.id.menuLogin:
                         logIn();
                         break;
@@ -76,15 +103,42 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         return true;
                 }
-
-
                 return true;
-
             }
         });
 
         fetchEvents();
 
+    }
+
+    private void setConditionalVisibles() {
+        if(loggedInCustomer == null){
+            menuMyAccount.setVisible(false);
+            menuMyEvents.setVisible(false);
+            menuCreateEvent.setVisible(false);
+            menuLogin.setVisible(true);
+            menuLogin.setVisible(true);
+        } else {
+            menuMyAccount.setVisible(true);
+            menuMyEvents.setVisible(true);
+            menuCreateEvent.setVisible(true);
+            menuLogin.setVisible(false);
+            menuLogin.setVisible(false);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(){
+
+    }
+
+    private void createEvent(Customer loggedInCustomer) {
+    }
+
+    private void myEvents(Customer loggedInCustomer) {
+    }
+
+    private void myAccount(Customer loggedInCustomer) {
     }
 
     private void signUp() {
