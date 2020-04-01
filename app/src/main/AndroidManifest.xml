@@ -35,6 +35,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateEventActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_EVENT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyEventsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_EVENTS" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyAccountActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_ACCOUNT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

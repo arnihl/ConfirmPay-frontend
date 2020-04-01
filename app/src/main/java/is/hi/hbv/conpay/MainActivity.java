@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -148,12 +149,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createEvent(Customer loggedInCustomer) {
+        if(loggedInCustomer == null){
+            Toast.makeText(MainActivity.this, "You have to be logged in to do this", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent i = new Intent(MainActivity.this, CreateEventActivity.class);
+        i.putExtra("Customer", loggedInCustomer);
+        startActivity(i);
     }
 
     private void myEvents(Customer loggedInCustomer) {
+        if(loggedInCustomer == null){
+            Toast.makeText(MainActivity.this, "You have to be logged in to do this", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent i = new Intent(MainActivity.this, MyEventsActivity.class);
+        i.putExtra("Customer", loggedInCustomer);
+        startActivity(i);
     }
 
     private void myAccount(Customer loggedInCustomer) {
+        if(loggedInCustomer == null){
+            Toast.makeText(MainActivity.this, "You have to be logged in to do this", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent i = new Intent(MainActivity.this, MyAccountActivity.class);
+        i.putExtra("Customer", loggedInCustomer);
+        startActivity(i);
     }
 
     private void signUp() {
