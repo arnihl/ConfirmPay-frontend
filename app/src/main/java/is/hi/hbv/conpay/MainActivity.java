@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         setConditionalVisibles();
     }
 
+
     private void createEvent(Customer loggedInCustomer) {
         if(loggedInCustomer == null){
             Toast.makeText(MainActivity.this, "You have to be logged in to do this", Toast.LENGTH_LONG).show();

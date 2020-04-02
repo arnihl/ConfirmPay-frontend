@@ -46,6 +46,12 @@
                 android:textStyle="bold"
                 android:visibility="visible" />
 
+            <Button
+                android:id="@+id/ViewEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View" />
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
