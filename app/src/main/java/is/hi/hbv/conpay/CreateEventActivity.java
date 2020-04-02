@@ -17,6 +17,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
         super.onCreate(savedInstance);
         setContentView(R.layout.create_event_layout);
+
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             customer = (Customer) extras.get("Customer");

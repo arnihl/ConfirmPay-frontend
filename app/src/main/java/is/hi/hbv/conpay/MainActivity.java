@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     EventAdapter eventAdapter;
-    List<Event> eventList;
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
@@ -50,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem menuSignup;
 
     private final int LOGIN_REQUEST_CODE = 1;
-    private final int SIGNUP_REQUEST_CODE = 2;
 
     private EventAPI eventAPI;
 
