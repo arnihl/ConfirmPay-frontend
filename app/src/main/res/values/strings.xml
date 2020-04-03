@@ -11,4 +11,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="accountTitle">My Account</string>
+    <string name="accountName">Account Name</string>
+    <string name="accountEmail">Account Email</string>
+    <string name="accountEventNumber">Number of Events</string>
+    <string name="accountRating">Rating</string>
 </resources>
