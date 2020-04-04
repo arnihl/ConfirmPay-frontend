@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/accountName"
             app:layout_constraintStart_toStartOf="@id/accountTextView"
             app:layout_constraintTop_toBottomOf="@id/accountTextView" />
@@ -38,7 +38,7 @@
             android:id="@+id/accountNamePlaceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintStart_toStartOf="@id/accountNameTextView"
             app:layout_constraintTop_toBottomOf="@id/accountNameTextView" />
 
@@ -46,7 +46,7 @@
             android:id="@+id/accountEmailTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/accountEmail"
             app:layout_constraintStart_toStartOf="@id/accountNamePlaceTextView"
             app:layout_constraintTop_toBottomOf="@id/accountNamePlaceTextView" />
@@ -55,7 +55,7 @@
             android:id="@+id/accountEmailPlaceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintStart_toStartOf="@id/accountEmailTextView"
             app:layout_constraintTop_toBottomOf="@id/accountEmailTextView" />
 
@@ -63,7 +63,7 @@
             android:id="@+id/accountEventNumberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/accountEventNumber"
             app:layout_constraintStart_toStartOf="@id/accountEmailPlaceTextView"
             app:layout_constraintTop_toBottomOf="@id/accountEmailPlaceTextView" />
@@ -72,7 +72,7 @@
             android:id="@+id/accountEventNumberPlaceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintStart_toStartOf="@id/accountEventNumberTextView"
             app:layout_constraintTop_toBottomOf="@id/accountEventNumberTextView" />
 
@@ -80,7 +80,7 @@
             android:id="@+id/accountRatingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/accountRating"
             app:layout_constraintStart_toStartOf="@id/accountEventNumberPlaceTextView"
             app:layout_constraintTop_toBottomOf="@id/accountEventNumberPlaceTextView" />
@@ -89,7 +89,7 @@
             android:id="@+id/accountRatingPlaceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintStart_toStartOf="@id/accountRatingTextView"
             app:layout_constraintTop_toBottomOf="@id/accountRatingTextView" />
 
