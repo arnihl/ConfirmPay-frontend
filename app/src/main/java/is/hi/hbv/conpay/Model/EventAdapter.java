@@ -55,6 +55,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         holder.btnViewDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // populatea dialog boxið með viðeigandi upplýsingum:
                 TextView textViewTitle = viewSingleEvent.findViewById(R.id.textViewTitle);
                 TextView textViewDesc = viewSingleEvent.findViewById(R.id.textViewShortDesc);
                 TextView textViewPrice = viewSingleEvent.findViewById(R.id.textViewPrice);
