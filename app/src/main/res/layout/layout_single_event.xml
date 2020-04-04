@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="asdfadsfasdf"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="#000000" />
 
 
@@ -31,13 +31,34 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Price: "
+            android:textStyle="bold"
+            android:visibility="visible"
+            android:layout_toLeftOf="@+id/textViewPrice"
+            android:layout_alignParentLeft="true" />
+
+
+        <TextView
             android:id="@+id/textViewPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:text="asdfasdf"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Maximum number of participants: "
             android:textStyle="bold"
             android:visibility="visible" />
 
@@ -52,6 +73,16 @@
             android:visibility="visible" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Minimum number of participants: "
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+
+        <TextView
             android:id="@+id/textViewMinPart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,13 +93,22 @@
             android:visibility="visible" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Expiration date: "
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+
+        <TextView
             android:id="@+id/textViewExpDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:text="06/06/06"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textStyle="bold"
             android:visibility="visible" />
 
