@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="106dp"
-        android:layout_height="0dp"
+        android:layout_width="109dp"
+        android:layout_height="35dp"
         android:layout_marginStart="54dp"
         android:layout_marginLeft="54dp"
         android:layout_marginBottom="9dp"
@@ -55,4 +55,5 @@
         app:layout_constraintEnd_toEndOf="@+id/textView10"
         app:layout_constraintStart_toStartOf="@+id/nameInputField"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -82,6 +82,5 @@ public class MyEventsActivity extends AppCompatActivity {
         recyclerView.setAdapter(eventAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
-
     }
 }

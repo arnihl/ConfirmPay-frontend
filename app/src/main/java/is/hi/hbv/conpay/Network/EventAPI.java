@@ -26,7 +26,7 @@ public interface EventAPI {
     @GET("getall")
     Call<List<Event>> getAll();
 
-    @GET("getByOwner/{id}")
+    @GET("getbyowner/{id}")
     Call<List<Event>> getAllByOwner(@Path("id") long id);
 
     @DELETE("delete/{id}")
