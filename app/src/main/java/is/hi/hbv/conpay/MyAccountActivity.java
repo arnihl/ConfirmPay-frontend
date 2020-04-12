@@ -52,6 +52,7 @@ public class MyAccountActivity extends AppCompatActivity {
         updateAccountEmail();
         updateAccountEventNumber();
         updateAccountRating();
+        updateAccountCreationDate();
     }
 
     protected void updateAccountName() {
