@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -76,7 +78,8 @@ public class MyAccountActivity extends AppCompatActivity {
 
     protected void updateAccountCreationDate() {
         Date date = customer.getcDate();
-        String creationDateString = date + "";
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String creationDateString = dateFormat.format(date);
         mAccountCreationDate.setText(creationDateString);
     }
 }
