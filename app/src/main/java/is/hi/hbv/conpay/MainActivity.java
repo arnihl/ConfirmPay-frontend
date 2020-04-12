@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem menuMyAccount;
     private MenuItem menuMyEvents;
     private MenuItem menuCreateEvent;
+    private MenuItem menuLogOut;
     private MenuItem menuLogin;
     private MenuItem menuSignup;
 
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         menuMyAccount = menu.findItem(R.id.menuMyAccount);
         menuMyEvents = menu.findItem(R.id.menuMyEvents);
         menuCreateEvent = menu.findItem(R.id.menuCreateEvent);
+        menuLogOut = menu.findItem(R.id.menuLogOut);
         menuLogin = menu.findItem(R.id.menuLogin);
         menuSignup =  menu.findItem(R.id.menuSignUp);
 
@@ -95,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.menuCreateEvent:
                         createEvent(loggedInCustomer);
+                        break;
+                    case R.id.menuLogOut:
+                        logOut(loggedInCustomer);
                         break;
                     case R.id.menuLogin:
                         logIn();
@@ -118,12 +123,14 @@ public class MainActivity extends AppCompatActivity {
             menuMyAccount.setVisible(false);
             menuMyEvents.setVisible(false);
             menuCreateEvent.setVisible(false);
+            menuLogOut.setVisible(false);
             menuLogin.setVisible(true);
             menuSignup.setVisible(true);
         } else {
             menuMyAccount.setVisible(true);
             menuMyEvents.setVisible(true);
             menuCreateEvent.setVisible(true);
+            menuLogOut.setVisible(true);
             menuLogin.setVisible(false);
             menuSignup.setVisible(false);
         }
@@ -173,6 +180,16 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         Intent i = new Intent(MainActivity.this, MyAccountActivity.class);
+        i.putExtra("Customer", loggedInCustomer);
+        startActivity(i);
+    }
+
+    private void logOut(Customer loggedInCustomer){
+        if(loggedInCustomer == null){
+            Toast.makeText(MainActivity.this, "You have to be logged in to do this", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent i = new Intent(MainActivity.this, LoginActivity.class);
         i.putExtra("Customer", loggedInCustomer);
         startActivity(i);
     }

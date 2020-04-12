@@ -11,6 +11,10 @@
         android:id="@+id/menuCreateEvent"
         android:title="Create Event" />
     <item
+        android:id="@+id/menuLogOut"
+        android:title="Log Out"
+        />
+    <item
         android:id="@+id/menuLogin"
         android:title="Login" />
         <!-- android:icon="@drawable/ic_portrait_black_24dp" -->
