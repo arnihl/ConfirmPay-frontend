@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Date;
 import java.util.List;
 
 import is.hi.hbv.conpay.Model.Customer;
@@ -23,6 +24,7 @@ public class MyAccountActivity extends AppCompatActivity {
     private TextView mAccountEmail;
     private TextView mAccountEventNumber;
     private TextView mAccountRating;
+    private TextView mAccountCreationDate;
     private CustomerAPI mCustomerAPI;
 
     @Override
@@ -34,6 +36,7 @@ public class MyAccountActivity extends AppCompatActivity {
         mAccountEmail = findViewById(R.id.accountEmailPlaceTextView);
         mAccountEventNumber = findViewById(R.id.accountEventNumberPlaceTextView);
         mAccountRating = findViewById(R.id.accountRatingPlaceTextView);
+        mAccountCreationDate = findViewById(R.id.accountCreationDatePlaceTextView);
         // mCustomerAPI = new APIClient.getCustomerClient().create(CustomerAPI.class);
 
         Bundle extras = getIntent().getExtras();
@@ -69,5 +72,11 @@ public class MyAccountActivity extends AppCompatActivity {
         double rating = customer.getRating();
         String ratingString = rating + "";
         mAccountRating.setText(ratingString);
+    }
+
+    protected void updateAccountCreationDate() {
+        Date date = customer.getcDate();
+        String creationDateString = date + "";
+        mAccountCreationDate.setText(creationDateString);
     }
 }

@@ -102,6 +102,25 @@
             app:layout_constraintStart_toStartOf="@id/accountRatingTextView"
             app:layout_constraintTop_toBottomOf="@id/accountRatingTextView" />
 
+        <TextView
+            android:id="@+id/accountCreationDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/accountCreationDate"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/accountRatingPlaceTextView"
+            app:layout_constraintTop_toBottomOf="@id/accountRatingPlaceTextView" />
+
+        <TextView
+            android:id="@+id/accountCreationDatePlaceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/accountCreationDateTextView"
+            app:layout_constraintTop_toBottomOf="@id/accountCreationDateTextView" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

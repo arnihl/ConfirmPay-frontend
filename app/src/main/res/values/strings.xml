@@ -16,4 +16,5 @@
     <string name="accountEmail">Account Email</string>
     <string name="accountEventNumber">Number of Events</string>
     <string name="accountRating">Rating</string>
+    <string name="accountCreationDate">Account Creation Date</string>
 </resources>
