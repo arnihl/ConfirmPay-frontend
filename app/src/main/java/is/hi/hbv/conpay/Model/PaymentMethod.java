@@ -1,17 +1,16 @@
 package is.hi.hbv.conpay.Model;
 
-
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Optional;
 
-public class PaymentMethod {
+public class PaymentMethod implements Serializable {
     private String pName;
     private String nameOfPayer;
     private String SSN;
