@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -186,9 +186,9 @@ public class CreateEventActivity extends AppCompatActivity {
         newEvent.setRefundPossible(refund);
         newEvent.setPublic(isPublic);
         newEvent.setPayments(paymentMethods);
-        Gson gson = new Gson();
-        String json = gson.toJson(newEvent);
-        System.out.println(json);
+        //Gson gson = new Gson();
+        //String json = gson.toJson(newEvent);
+        //System.out.println(json);
         makeEvent(newEvent);
     }
 
