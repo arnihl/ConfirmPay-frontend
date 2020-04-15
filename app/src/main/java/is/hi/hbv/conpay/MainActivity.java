@@ -25,6 +25,7 @@ import is.hi.hbv.conpay.Model.Customer;
 import is.hi.hbv.conpay.Model.Event;
 import is.hi.hbv.conpay.Model.EventAdapter;
 import is.hi.hbv.conpay.Network.APIClient;
+import is.hi.hbv.conpay.Network.CustomerAPI;
 import is.hi.hbv.conpay.Network.EventAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final int LOGIN_REQUEST_CODE = 1;
 
+    private CustomerAPI customerAPI;
     private EventAPI eventAPI;
 
     @Override
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         eventAPI = new APIClient().getEventClient().create(EventAPI.class);
+        customerAPI = new APIClient().getEventClient().create(CustomerAPI.class);
+
         dl = findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
 
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         menuLogOut = menu.findItem(R.id.menuLogOut);
         menuLogin = menu.findItem(R.id.menuLogin);
         menuSignup =  menu.findItem(R.id.menuSignUp);
-
+        isLoggedIn();
         setConditionalVisibles();
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -115,6 +119,26 @@ public class MainActivity extends AppCompatActivity {
 
         fetchEvents();
 
+    }
+
+    private void isLoggedIn() {
+        Call call = customerAPI.isLoggedIn();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Log.d("HttpStatus", String.valueOf(response.body()));
+                    loggedInCustomer = (Customer) response.body();
+                } else {
+                    Log.i("onEmptyResponse", "Customer is not logged in");
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e("Network error", t.getMessage());
+            }
+        });
     }
 
     private void setConditionalVisibles() {

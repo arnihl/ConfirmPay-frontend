@@ -1,11 +1,9 @@
 package is.hi.hbv.conpay;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,8 +42,6 @@ public class MyEventsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //eventAPI = new APIClient().getEventClient().create(EventAPI.class);
-
         fetchEvents();
     }
 
@@ -61,7 +57,6 @@ public class MyEventsActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     Log.d("HttpStatus", String.valueOf(response.body()));
                     writeRecycler(response.body());
-
                 } else {
                     Log.i("onEmptyResponse", "Returned empty response");
                 }

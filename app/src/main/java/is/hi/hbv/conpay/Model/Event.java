@@ -1,20 +1,28 @@
 package is.hi.hbv.conpay.Model;
 
 
-import java.time.*;
-import java.util.Date;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Event {
 
+public class Event implements Serializable {
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private long id;
     /* title? */
     private String name;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Date eDate;
     private double priceCat;
+    @JsonProperty("ownerId")
+    @JsonDeserialize(as = Long.class)
+    @JsonSerialize(using= ToStringSerializer.class)
     private long eventOwner;
     private String description;
     private int maxParticipants;
@@ -29,13 +37,13 @@ public class Event {
     public Event() {
     }
 
-    public Event(String name, Date date, double priceCat, long ownerId, String description,
+    public Event(String name, Date date, double priceCat, long eventOwnerId, String description,
                  int maxParticipants, int minParticipants, boolean isPublic,
                  boolean isRefundPossible, PaymentMethod paymentMethod ){
         this.name = name;
         this.eDate = date;
         this.priceCat = priceCat;
-        this.eventOwner = ownerId;
+        this.eventOwner = eventOwnerId;
         this.description = description;
         this.maxParticipants = maxParticipants;
         this.minParticipants = minParticipants;
@@ -67,7 +75,7 @@ public class Event {
         this.name = name;
     }
 
-    public Date geteDate() {
+   public Date geteDate() {
         return eDate;
     }
 

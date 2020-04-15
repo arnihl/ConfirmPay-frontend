@@ -54,14 +54,13 @@ public class SignUpActivity extends AppCompatActivity {
                 if(response.isSuccessful() && response.body() != null){
                     Toast.makeText(SignUpActivity.this, "You have made an account. Now you can log in!", Toast.LENGTH_LONG).show();
                     finish();
-
                 }
             }
 
             @Override
             public void onFailure(Call<Customer> call, Throwable t) {
                 Log.e("Network error", t.getMessage() != null ? t.getMessage() : "Error in netzwerk");
-                Toast.makeText(SignUpActivity.this, "Signup Failed... you dumbass", Toast.LENGTH_LONG).show();
+                Toast.makeText(SignUpActivity.this, "Signup Failed because of a network error", Toast.LENGTH_LONG).show();
                 call.cancel();
 
             }

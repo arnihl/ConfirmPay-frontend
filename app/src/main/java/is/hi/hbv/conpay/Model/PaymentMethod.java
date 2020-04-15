@@ -2,6 +2,12 @@ package is.hi.hbv.conpay.Model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.util.Date;
 import java.util.Optional;
 
@@ -14,12 +20,16 @@ public class PaymentMethod {
     private String expirationDate;
     private String securityNo;
     private String email;
+    @JsonProperty("ownerId")
+    @JsonDeserialize(as = Long.class)
+    @JsonSerialize(using= ToStringSerializer.class)
     private long ownerId; // finna út hvernig optional virkar almennilega!
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Date pDate;
     public PaymentMethod() {
     }
 
-    public PaymentMethod(String name, String nameOfPayer,
+    /*public PaymentMethod(String name, String nameOfPayer,
                          String SSN, String cardType, String cardNo,
                          String expirationDate, String securityNo, String email, Date date) {
         this.pName = name;
@@ -31,7 +41,7 @@ public class PaymentMethod {
         this.securityNo = securityNo;
         this.email = email;
         this.pDate = date;
-    }
+    }*/
     // annar constructor fyrir optional ownerId;
     public PaymentMethod(String name, String nameOfPayer,
                          String SSN, String cardType, String cardNo,
@@ -112,15 +122,15 @@ public class PaymentMethod {
         this.email = email;
     }
 
-    public Optional<Long> getOwnerId() {
-        return Optional.ofNullable(ownerId);
+    public long getOwnerId() {
+        return ownerId;
     }
 
     public void setOwnerId(long ownerId) {
         this.ownerId = ownerId;
     }
 
-    public Date getpDate() {
+   public Date getpDate() {
         return pDate;
     }
 
