@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
         dl.addDrawerListener(t);
         t.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nv = findViewById(R.id.nv);
@@ -99,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         createEvent(loggedInCustomer);
                         break;
                     case R.id.menuLogOut:
-                        logOut(loggedInCustomer);
+                        logOut();
                         break;
                     case R.id.menuLogin:
                         logIn();
@@ -184,14 +183,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void logOut(Customer loggedInCustomer){
-        if(loggedInCustomer == null){
-            Toast.makeText(MainActivity.this, "You have to be logged in to do this", Toast.LENGTH_LONG).show();
-            return;
-        }
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
-        i.putExtra("Customer", loggedInCustomer);
-        startActivity(i);
+    private void logOut(){
+        loggedInCustomer = null;
+        setConditionalVisibles();
     }
 
     private void signUp() {
