@@ -201,7 +201,7 @@ public class CreateEventActivity extends AppCompatActivity {
                 Log.d("HttpStatus", String.valueOf(response.code()));
                 if(response.isSuccessful() && response.body() != null){
                     Toast.makeText(CreateEventActivity.this, "Event Created and can be found under My Events", Toast.LENGTH_LONG).show();
-                    //finish();
+                    finish();
                 }
                 makeToast("Something went wrong with creation.");
             }
