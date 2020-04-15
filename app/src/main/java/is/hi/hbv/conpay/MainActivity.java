@@ -110,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menuSignUp:
                         signUp();
                         break;
+                    case R.id.menuFindEvent:
+                        findEvent();
+                        break;
                     default:
                         return true;
                 }
@@ -119,6 +122,11 @@ public class MainActivity extends AppCompatActivity {
 
         fetchEvents();
 
+    }
+
+    private void findEvent() {
+        Intent i = new Intent(MainActivity.this, FindEventActivity.class);
+        startActivity(i);
     }
 
     private void isLoggedIn() {
