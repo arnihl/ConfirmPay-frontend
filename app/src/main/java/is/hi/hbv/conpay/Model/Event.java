@@ -1,13 +1,14 @@
 package is.hi.hbv.conpay.Model;
 
 
+import java.io.Serializable;
 import java.time.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Date;
 import java.util.List;
 
-public class Event {
+public class Event implements Serializable {
 
     private long id;
     /* title? */

@@ -77,6 +77,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
                     public void onClick(View v) {
                         final Intent intent;
                         intent = new Intent(mCtx, PaymentActivity.class);
+                        intent.putExtra("event", event);
                         mCtx.startActivity(intent);
                     }
                 });
