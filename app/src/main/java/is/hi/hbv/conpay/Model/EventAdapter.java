@@ -3,6 +3,7 @@ package is.hi.hbv.conpay.Model;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import is.hi.hbv.conpay.MainActivity;
+import is.hi.hbv.conpay.PaymentActivity;
 import is.hi.hbv.conpay.R;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
@@ -62,12 +65,21 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
                 TextView textViewMaxPart = viewSingleEvent.findViewById(R.id.textViewMaxPart);
                 TextView textViewMinPart = viewSingleEvent.findViewById(R.id.textViewMinPart);
                 TextView textViewExpDate = viewSingleEvent.findViewById(R.id.textViewExpDate);
+                Button buttonEventPayment = viewSingleEvent.findViewById(R.id.buttonEventPayment);
                 textViewExpDate.setText(String.valueOf(event.geteDate()));
                 textViewTitle.setText(event.getName());
                 textViewDesc.setText(event.getDescription());
                 textViewPrice.setText(String.valueOf(event.getPriceCat()));
                 textViewMaxPart.setText(String.valueOf(event.getMaxParticipants()));
                 textViewMinPart.setText(String.valueOf(event.getMinParticipants()));
+                buttonEventPayment.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Intent intent;
+                        intent = new Intent(mCtx, PaymentActivity.class);
+                        mCtx.startActivity(intent);
+                    }
+                });
                 viewSingleEvent.show();
             }
         });
