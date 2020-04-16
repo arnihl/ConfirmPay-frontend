@@ -140,6 +140,7 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
                     makeToast("Something went wrong with payment.");
 
                 }
+
             }
 
             @Override
