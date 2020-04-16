@@ -138,6 +138,13 @@
 
             android:text="Pay now!" />
 
+        <Button
+            android:id="@+id/buttonDeleteEvent"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Delete Event" />
+
     </LinearLayout>
 
 

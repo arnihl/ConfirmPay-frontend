@@ -133,16 +133,19 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
             public void onResponse(Call<PaymentMethod> call, Response<PaymentMethod> response) {
                 Log.d("HttpStatus", String.valueOf(response.code()));
                 if(response.isSuccessful() && response.body() != null){
-                    Toast.makeText(PaymentActivity.this, "Event Created and can be found under My Events", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PaymentActivity.this, "Payment successful", Toast.LENGTH_LONG).show();
                     finish();
                 }
-                makeToast("Something went wrong with creation.");
+                else {
+                    makeToast("Something went wrong with payment.");
+
+                }
             }
 
             @Override
             public void onFailure(Call<PaymentMethod> call, Throwable t) {
                 Log.e("Network error", t.getMessage() != null ? t.getMessage() : "Error in netzwerk");
-                Toast.makeText(PaymentActivity.this, "Event creation failed: network error", Toast.LENGTH_LONG).show();
+                Toast.makeText(PaymentActivity.this, "Payment failed: network error", Toast.LENGTH_LONG).show();
                 call.cancel();
             }
         });

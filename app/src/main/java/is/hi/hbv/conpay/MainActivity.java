@@ -270,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void writeRecycler(List<Event> response){
 
-        eventAdapter = new EventAdapter(this, response);
+        eventAdapter = new EventAdapter(this, response, false);
         recyclerView.setAdapter(eventAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 

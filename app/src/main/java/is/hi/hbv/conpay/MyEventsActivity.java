@@ -73,7 +73,7 @@ public class MyEventsActivity extends AppCompatActivity {
     }
     private void writeRecycler(List<Event> response){
 
-        eventAdapter = new EventAdapter(this, response);
+        eventAdapter = new EventAdapter(this, response, true);
         recyclerView.setAdapter(eventAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
