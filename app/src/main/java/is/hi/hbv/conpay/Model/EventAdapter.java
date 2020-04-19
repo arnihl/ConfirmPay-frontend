@@ -28,6 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//þessi klasi er adapter til þess að populatea recycler viewið sem inniheldur eventana
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
     private Context mCtx;
@@ -50,7 +51,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         View view = inflater.inflate(R.layout.layout_events, null);
         EventViewHolder holder = new EventViewHolder(view);
 
-        // búa til nýjan hlut fyrir "learn more" takkann
+        // búa til nýjan "Dialog box" hlut fyrir "learn more" takkann
         viewSingleEvent = new Dialog(mCtx);
         viewSingleEvent.setContentView(R.layout.layout_single_event);
 
@@ -88,6 +89,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
                 textViewMaxPart.setText(String.valueOf(event.getMaxParticipants()));
                 textViewMinPart.setText(String.valueOf(event.getMinParticipants()));
                 textViewEventID.setText(String.valueOf(event.getId()));
+                //on click fyrir pay now sem opnar activity PaymentActivity
                 buttonEventPayment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
