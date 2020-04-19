@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String CUSTOMER_URI = "is.hi.hbv.conpay.MainActivity";
     private int LOGIN_REQUEST_CODE = 1;
 
+    // Attempts to log in a user
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -42,6 +43,11 @@ public class LoginActivity extends AppCompatActivity {
         customerAPI = APIClient.getCustomerClient().create(CustomerAPI.class);
         mLoginButton.setOnClickListener(l -> LogIn());
     }
+
+    // When login button is pressed, send a Customer object to the
+    // backend with the credentials typed in on the layout.
+    // Backend returns the same user(Customer) object if all the
+    // credentials are correct.
 
     private void LogIn() {
         String name = mNameField.getText().toString();

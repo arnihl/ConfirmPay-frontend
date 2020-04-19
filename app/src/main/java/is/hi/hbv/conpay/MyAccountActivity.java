@@ -29,6 +29,8 @@ public class MyAccountActivity extends AppCompatActivity {
     private TextView mAccountCreationDate;
     private CustomerAPI mCustomerAPI;
 
+    // Shows some details on the user that is logged in.
+
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);

@@ -55,12 +55,14 @@ public class MainActivity extends AppCompatActivity {
     private CustomerAPI customerAPI;
     private EventAPI eventAPI;
 
+    // Publishes all public events on the frontpage
+    // Also creates a drawermenu with some options
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        // Create recycler view for the events
         recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         eventAPI = new APIClient().getEventClient().create(EventAPI.class);
         customerAPI = new APIClient().getEventClient().create(CustomerAPI.class);
 
+        // Create the
         dl = findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
 
@@ -149,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Set the menuitems in the drawermenu visible or invisible
+    // depending on if user is logged in or not.
     private void setConditionalVisibles() {
         if(loggedInCustomer == null){
             menuMyAccount.setVisible(false);
@@ -167,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Receives a user object from the loginactivity
+    // and stores the object as an instance variable.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -184,6 +191,13 @@ public class MainActivity extends AppCompatActivity {
         setConditionalVisibles();
     }
 
+
+    /* *************************************
+     * These functions below get called    *
+     * when the buttons in the drawermenu  *
+     * are pressed.                        *
+     ***************************************
+     */
 
     private void createEvent(Customer loggedInCustomer) {
         if(loggedInCustomer == null){
@@ -240,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // populate events
+    // fetches events to be stored on the frontpage
     public void fetchEvents(){
 
         eventAPI = new APIClient().getEventClient().create(EventAPI.class);
@@ -268,6 +282,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    // populates events on the frontpage
     private void writeRecycler(List<Event> response){
 
         eventAdapter = new EventAdapter(this, response, false);

@@ -31,6 +31,7 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
     private PaymentMethod paymentMethod;
     private EventAPI eventAPI;
 
+    // this activity gets called when a user wants to pay for an event.
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -57,6 +58,7 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
         mSubmitButton.setOnClickListener(l -> createPayment());
     }
 
+    // Display information on events on the screen.
     private void updateDescription(){
         mTextViewTitle = findViewById(R.id.textViewTitle);
         mTextViewDesc = findViewById(R.id.textViewShortDesc);
@@ -73,6 +75,7 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
         mTextViewMinPart.setText(String.valueOf(event.getMinParticipants()));
     }
 
+    // Take information typed in the text boxes and populate a paymentmethod
     private void createPayment(){
         PaymentMethod newPaymentMethod = new PaymentMethod();
         String nameOfPayer = mNameOfPayer.getText().toString();
@@ -122,9 +125,10 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
         newPaymentMethod.setSecurityNo(securityNo);
         newPaymentMethod.setEmail(email);
 
-        makePayment(newPaymentMethod);
+        makePayment(newPaymentMethod); // send payment to backend.
     }
 
+    // Sends the payment information to the backend and stores it to the corresponding event.
     private void makePayment(PaymentMethod newPaymentMethod) {
         Call<PaymentMethod> call = eventAPI.payEvent(event.getId(), newPaymentMethod);
         System.out.println("call request" + call.request().body());
@@ -138,9 +142,7 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
                 }
                 else {
                     makeToast("Something went wrong with payment.");
-
                 }
-
             }
 
             @Override

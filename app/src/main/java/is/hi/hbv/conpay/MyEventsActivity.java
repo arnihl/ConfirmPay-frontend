@@ -28,6 +28,11 @@ public class MyEventsActivity extends AppCompatActivity {
     EventAdapter eventAdapter;
 
 
+    /* ******************************
+     * Fethches and displays events that were made by the user
+     * that is currently logged in.
+     * User is able to delete the events that this activity displays.
+     */
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -45,7 +50,7 @@ public class MyEventsActivity extends AppCompatActivity {
         fetchEvents();
     }
 
-    //populatea myevent eftir að maður hefur loggað sig inn:
+    // Fetches events
     public void fetchEvents(){
 
         eventAPI = new APIClient().getEventClient().create(EventAPI.class);
@@ -56,7 +61,7 @@ public class MyEventsActivity extends AppCompatActivity {
             public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Log.d("HttpStatus", String.valueOf(response.body()));
-                    writeRecycler(response.body());
+                    writeRecycler(response.body()); // Display the events on the screen
                 } else {
                     Log.i("onEmptyResponse", "Returned empty response");
                 }
@@ -71,6 +76,10 @@ public class MyEventsActivity extends AppCompatActivity {
 
         });
     }
+
+
+    // Sends a list of events to an recyclerview adapter to
+    // be displayed on the screen.
     private void writeRecycler(List<Event> response){
 
         eventAdapter = new EventAdapter(this, response, true);

@@ -22,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button mSignUpButton;
     private CustomerAPI customerAPI;
 
+    // Creates a new user and stores it on the backend.
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -37,6 +38,8 @@ public class SignUpActivity extends AppCompatActivity {
         mSignUpButton.setOnClickListener(l -> SignUp());
     }
 
+    // Creates a user(customer) object and sends it to the backend
+    // for storing.
     private void SignUp() {
         String name = mNameField.getText().toString();
         String password = mPasswordField.getText().toString();

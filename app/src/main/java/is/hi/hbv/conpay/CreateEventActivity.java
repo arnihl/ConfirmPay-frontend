@@ -77,7 +77,11 @@ public class CreateEventActivity extends AppCompatActivity {
         mCreateEventButton.setOnClickListener(l -> createEvent());
     }
 
+    // when button is pushed this function gets called
     private void createEvent() {
+        // Get information from textfields and store them in an Event object
+        // and store the event object on the backend
+        //
         Event newEvent = new Event();
         String name = mNameField.getText().toString();
         if(name.isEmpty()){
@@ -189,9 +193,10 @@ public class CreateEventActivity extends AppCompatActivity {
         //Gson gson = new Gson();
         //String json = gson.toJson(newEvent);
         //System.out.println(json);
-        makeEvent(newEvent);
+        makeEvent(newEvent); // Make the backend call to store the event.
     }
 
+    // Calls the backend to store the new made event.
     private void makeEvent(Event newEvent) {
         Call<Event> call = eventAPI.saveEvent(newEvent);
         System.out.println("call request" + call.request().body());

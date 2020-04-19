@@ -22,6 +22,10 @@ public class FindEventActivity extends AppCompatActivity {
     private Button mGetEventButton;
     private EventAPI eventAPI;
 
+
+    // Pretty straight forward activity.
+    // Fetches and displays an event by id with payment_layout,
+    // same as is used in Payment activity
     @Override
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
