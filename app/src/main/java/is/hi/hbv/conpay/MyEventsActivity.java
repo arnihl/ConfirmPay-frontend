@@ -20,6 +20,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//activity fyrir eventana sem sjást eftir að loggað hefur verið inn
+// og farið í my events.
+//notast við sama recyclerview og MainActivity nema sýnir bara þína eventa
 public class MyEventsActivity extends AppCompatActivity {
 
     private Customer customer;

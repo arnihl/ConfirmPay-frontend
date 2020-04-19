@@ -21,7 +21,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+//activity fyrir payments sem opnast eftir að ýtt er á "pay now" takkann.
+//tekur inn upplýsingar frá notanda og vistar í gagnagrunninn
 public class PaymentActivity extends AppCompatActivity implements Serializable {
 
     private EditText mCardNumber, mExpMonth, mExpYear, mCvc, mSSN, mNameOfPayer, mNameOfParticipant, mEmail;
@@ -73,6 +74,7 @@ public class PaymentActivity extends AppCompatActivity implements Serializable {
         mTextViewMinPart.setText(String.valueOf(event.getMinParticipants()));
     }
 
+    //búa til payment hlut út frá gefnu info til þess að vista í gagnagrunninn
     private void createPayment(){
         PaymentMethod newPaymentMethod = new PaymentMethod();
         String nameOfPayer = mNameOfPayer.getText().toString();
